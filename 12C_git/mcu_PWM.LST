@@ -1,4 +1,4 @@
-C51 COMPILER V9.03   MCU_PWM                                                               05/20/2015 13:42:43 PAGE 1   
+C51 COMPILER V9.03   MCU_PWM                                                               05/20/2015 17:25:30 PAGE 1   
 
 
 C51 COMPILER V9.03, COMPILATION OF MODULE MCU_PWM
@@ -11,7 +11,7 @@ line level    source
    2          //unsigned char PWM[4] = {0x3F, 0x7F, 0xBF, 0xFF};//速度分为四个等级
    3          //unsigned int speed[4];
    4          //P1^3,1^4为PWM输出口
-   5          sbit P1_3=P1^3;
+   5          
    6          
    7          void PWMInit()
    8          {
@@ -21,92 +21,113 @@ line level    source
   12   1              CH=0x00;                                //PCA计数器高八位置0
   13   1              PCA_PWM0=0x00;                  //设置PCA模块0的PWM寄存器
   14   1              CCAPM0=0x42;                    //PWM0设置PCA工作方式为PWM方式（01000010）  
-  15   1      //      CCAP0L=0x8f;                    //设置PWM0初始值与CCAP0H相同  
-  16   1      //      CCAP0H=0x8f;                    // PWM0初始时为0
-  17   1              CCAP0L=0x40;                    //设置PWM0初始值与CCAP0H相同  
-  18   1              CCAP0H=0x40;                    // PWM0初始时为0
-  19   1      //      CCAP0L=PWM[1];                  //设置PWM0初始值与CCAP0H相同  
-  20   1      //      CCAP0H=PWM[1];                  // PWM0初始时为0
-  21   1              CR=1;                                   //启动PCA定时器
-  22   1              
-  23   1      }        
-  24          void addPWM(unsigned char dat)
-  25          {
-  26   1              if(CCAP0H+dat>250)
-  27   1              {
-  28   2                      CCAP0H = 250;   
-  29   2                      CCAP0L = 250;
-  30   2              }
-  31   1              else
-  32   1              {
-  33   2                      CCAP0H+=dat;
-  34   2                      CCAP0L+=dat;    
-  35   2              }
-  36   1      }
-  37          void reducePWM(unsigned char dat)
-  38          {
-  39   1              if(CCAP0H-dat<0)
-  40   1              {
-  41   2                      CCAP0H = 10;    
-  42   2                      CCAP0L = 10;
-  43   2              }
-  44   1              else
-  45   1              {
-  46   2                      CCAP0H-=dat;
-  47   2                      CCAP0L-=dat;    
-  48   2              }
-  49   1      }
-  50          
-  51          //void PWMInit_B()
-  52          //{
-  53          //      CCON=0;                         //设置PCA控制寄存器
-  54          //      CMOD=0x00;                      //设置PCA工作模式器寄存器，  
-  55          //      CL=0x00;                        //PCA计数器低八位置0   
-C51 COMPILER V9.03   MCU_PWM                                                               05/20/2015 13:42:43 PAGE 2   
+  15   1              CCAP0L=0x40;                    //设置PWM0初始值与CCAP0H相同  
+  16   1              CCAP0H=0x40;                    // PWM0初始时为0
+  17   1              CR=1;                                   //启动PCA定时器
+  18   1              
+  19   1      }        
+  20          void addPWM(unsigned char dat)
+  21          {
+  22   1              if(CCAP0H+dat>250)
+  23   1              {
+  24   2                      CCAP0H = 250;   
+  25   2                      CCAP0L = 250;
+  26   2              }
+  27   1              else
+  28   1              {
+  29   2                      CCAP0H+=dat;
+  30   2                      CCAP0L+=dat;    
+  31   2              }
+  32   1      }
+  33          void reducePWM(unsigned char dat)
+  34          {
+  35   1              if(CCAP0H-dat<0)
+  36   1              {
+  37   2                      CCAP0H = 10;    
+  38   2                      CCAP0L = 10;
+  39   2              }
+  40   1              else
+  41   1              {
+  42   2                      CCAP0H-=dat;
+  43   2                      CCAP0L-=dat;    
+  44   2              }
+  45   1      }
+  46          void setPWM(unsigned char dat)
+  47          {
+  48   1              switch(dat)
+  49   1              {
+  50   2                      case 1: 
+  51   2                              CCAP0H = 0X3F;  
+  52   2                              CCAP0L = 0X3F;
+  53   2                              break;
+  54   2                      case 2: 
+  55   2                              CCAP0H = 0XBF;  
+C51 COMPILER V9.03   MCU_PWM                                                               05/20/2015 17:25:30 PAGE 2   
 
-  56          //      CH=0x00;                        //PCA计数器高八位置0
-  57          //      PCA_PWM0=0x00;                  //设置PCA模块0的PWM寄存器
-  58          //      CCAPM0=0x42;                    //PWM0设置PCA工作方式为PWM方式（01000010）  
-  59          ////    CCAP0L=0x8f;                    //设置PWM0初始值与CCAP0H相同  
-  60          ////    CCAP0H=0x8f;                    // PWM0初始时为0
-  61          //      CCAP0L=0x8f;                    //设置PWM0初始值与CCAP0H相同  
-  62          //      CCAP0H=0x8f;                    // PWM0初始时为0
-  63          //////  CCAP0L=PWM[1];                  //设置PWM0初始值与CCAP0H相同  
-  64          //////  CCAP0H=PWM[1];                  // PWM0初始时为0
-  65          //      CR=1;                   //启动PCA定时器
-  66          //      
-  67          //}      
-  68          
-  69           //CL<CCAPOL时输出低,高电平接PWM输出口，占空比越大，加速
-  70          
-  71          //void main() 
-  72          //{
-  73          //      
-  74          //      PWMInit();
-  75          //      P1_3=0;
-  76          //      runfront();
-  77          //      runback();      
-  78          //      while(1) 
-  79          //      {  
-  80          //              if(P1_7==0) 
-  81          //              {  
-  82          //                      delay(200); 
-  83          //                      while(P1_7==0);
-  84          //                      CCAP0H-=10;                     //加速
-  85          //                      CCAP0L-=10; 
-  86          //              } 
-  87          //      }
-  88          
-  89          //} 
+  56   2                              CCAP0L = 0XBF;
+  57   2                              break;
+  58   2                      case 3: 
+  59   2                              CCAP0H = 0X3F;  
+  60   2                              CCAP0L = 10;
+  61   2                              break;
+  62   2                      case 4: 
+  63   2                              CCAP0H = 0X3F;  
+  64   2                              CCAP0L = 0X3F;
+  65   2                              break;
+  66   2              }
+  67   1                      
+  68   1      }
+  69          
+  70          //void PWMInit_B()
+  71          //{
+  72          //      CCON=0;                         //设置PCA控制寄存器
+  73          //      CMOD=0x00;                      //设置PCA工作模式器寄存器，  
+  74          //      CL=0x00;                        //PCA计数器低八位置0   
+  75          //      CH=0x00;                        //PCA计数器高八位置0
+  76          //      PCA_PWM0=0x00;                  //设置PCA模块0的PWM寄存器
+  77          //      CCAPM0=0x42;                    //PWM0设置PCA工作方式为PWM方式（01000010）  
+  78          ////    CCAP0L=0x8f;                    //设置PWM0初始值与CCAP0H相同  
+  79          ////    CCAP0H=0x8f;                    // PWM0初始时为0
+  80          //      CCAP0L=0x8f;                    //设置PWM0初始值与CCAP0H相同  
+  81          //      CCAP0H=0x8f;                    // PWM0初始时为0
+  82          //////  CCAP0L=PWM[1];                  //设置PWM0初始值与CCAP0H相同  
+  83          //////  CCAP0H=PWM[1];                  // PWM0初始时为0
+  84          //      CR=1;                   //启动PCA定时器
+  85          //      
+  86          //}      
+  87          
+  88           //CL<CCAPOL时输出低,高电平接PWM输出口，占空比越大，加速
+  89          
+  90          //void main() 
+  91          //{
+  92          //      
+  93          //      PWMInit();
+  94          //      P1_3=0;
+  95          //      runfront();
+  96          //      runback();      
+  97          //      while(1) 
+  98          //      {  
+  99          //              if(P1_7==0) 
+ 100          //              {  
+ 101          //                      delay(200); 
+ 102          //                      while(P1_7==0);
+ 103          //                      CCAP0H-=10;                     //加速
+ 104          //                      CCAP0L-=10; 
+ 105          //              } 
+ 106          //      }
+ 107          
+ 108          //} 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     91    ----
+   CODE SIZE        =    129    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
+C51 COMPILER V9.03   MCU_PWM                                                               05/20/2015 17:25:30 PAGE 3   
+
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 

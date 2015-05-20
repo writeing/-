@@ -6,7 +6,6 @@
 *******************************************************/
 #include	<config.h>
 #include	<PWM.h>
-
  
 /************************************宏定义************************************/
 #define VELOCITY_30C	3495       //30摄氏度时的声速，声速V= 331.5 + 0.6*温度； 
@@ -19,8 +18,11 @@ sbit OUTPUT = P2^7;                //超声触发端口
 /********************************定义变量和数组********************************/
 long int distance=0;               //距离变量
 uchar count;
+int DPWM=1;
+int TPWM=0;
 unsigned char a[4];
-
+uint DArray[10];
+uint Dflag=0;
 
 /**************************************/
 void show()
@@ -154,24 +156,54 @@ void Measure_Distance(void)
 /******************************************************************************/					
 void main(void)
 {
+	int Dtemp=0,i;
 	Init_MCU();
 	Init_Parameter();
 	UartInit();
+//	PWMInit();
 	Delay_xMs(30000);
 	while(1)
 	{
+		 
 		 Trig_SuperSonic();         //触发超声波发射
 		 while(INPUT == 0)          //等待回声
      	{
         	;
      	}
 		 Measure_Distance();        //计算脉宽并转换为距离
-		 show();
-		 UART1_Send_String("distance = ");
-		 UART1_Send_String(a);
-		 UART1_Send_String("\n");
+		 DArray[Dflag++] = distance;
+		 delayt(10000);               //延时，两次发射之间要至少有10ms间隔
+	//	 addPWM(30);
+		 if(Dflag==10)
+		 {		
+		 //	 reducePWM(250);
+		 	 TPWM = (TPWM+5)%30;	 			 
+			 distance = 0; //清零，然后当做平均值
+			 Dflag = 0;	//记住有多少个数据被相加了
+			 for(i=0;i<10;i++)
+			 {
+				distance+=DArray[i];			
+			 }
+			 distance/=10;		  
+			 if(distance>40)
+			 {
+			 	Dtemp = distance;
+			 //	setPWM(2);	
+			 }
+			 else
+			 {
+				if(distance>10&&distance<40)
+				{
+			 	//	setPWM(1);	
+				}		 	
+			 }	
+			 show();
+			 UART1_Send_String("distance = ");
+			 UART1_Send_String(a);
+			 UART1_Send_String("\n");
+		 }//判断10次接受完成
 		 Init_Parameter();          // 参数重新初始化
-		 delayt(10);               //延时，两次发射之间要至少有10ms间隔
+		 
 	 }	
 }
 
@@ -187,9 +219,17 @@ void timer0 (void) interrupt 1
 	TF0 = 0;
 	TL0 = 0xcd;
 	TH0 = 0xf8;
-	count++;
+	count++;	
+	DPWM++;
+	PWM=0;
+	if(DPWM == TPWM)
+	{
+		DPWM =0;
+		PWM=1;
+	}
 	if(count == 36)//超声波回声脉宽最多18ms
 	{
+		
 		TR0 =0;
 		TL0 = 0xcd;
 		TH0 = 0xf8;

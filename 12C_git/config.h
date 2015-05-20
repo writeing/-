@@ -4,6 +4,7 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<string.h>
+#include	<math.h>
 
 #define uchar unsigned char
 #define uint unsigned int  
