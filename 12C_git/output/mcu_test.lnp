@@ -1,4 +1,6 @@
 ".\output\STARTUP.obj",
-".\output\mcu_test.obj" 
+".\output\mcu_test.obj",
+".\output\mcu_PWM.obj",
+".\output\config.obj" 
 TO ".\output\mcu_test" 
 PRINT(".\mcu_test.m51") RAMSIZE(256) 

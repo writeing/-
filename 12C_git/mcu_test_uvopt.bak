@@ -181,10 +181,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>86</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>15</CurrentLine>
+      <CurrentLine>12</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mcu_test.c</PathWithFileName>
       <FilenameWithoutPath>mcu_test.c</FilenameWithoutPath>
@@ -200,9 +200,9 @@
       <Documents>
         <Doc>
           <Name>.\mcu_test.c</Name>
-          <ColumnNumber>25</ColumnNumber>
+          <ColumnNumber>86</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>15</CurrentLine>
+          <CurrentLine>12</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

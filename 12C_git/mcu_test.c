@@ -1,18 +1,13 @@
 /******************************************************
-//5-20:（1）增加了超声波的测量.
-
-
-
-
+//5-20:
+(1)增加了超声波的测量.
+(2)增加了PWM调制，可以改变电压，于LM298一起
 
 *******************************************************/
-#include 	<STC12C5A60S2.H>
-#include	<stdlib.h>
-#include	<stdio.h>
-#include	<string.h>
+#include	<config.h>
+#include	<PWM.h>
 
-#define uchar unsigned char
-#define uint unsigned int   
+ 
 /************************************宏定义************************************/
 #define VELOCITY_30C	3495       //30摄氏度时的声速，声速V= 331.5 + 0.6*温度； 
 #define VELOCITY_23C	3453       //23摄氏度时的声速，声速V= 331.5 + 0.6*温度； 
@@ -26,39 +21,7 @@ long int distance=0;               //距离变量
 uchar count;
 unsigned char a[4];
 
-/***********************************函数声明***********************************/
-void PWMInit();
-void PWMInit_B();
 
-
-
-
-void UART1_Send_Byte(unsigned char ddata) 
-{	    
-	SBUF = ddata;  //写入要发送的字符
-	while(!TI);    //等待发送完毕
-	TI = 0;        //清发送标志   
-}
-
-void UART1_Send_String(unsigned char *str)
-{
-	while(*str!='\0')
-	{
-		UART1_Send_Byte(*str++);	
-	}
-} 
-
-void UartInit(void)		//9600bps@11.0592MHz
-{
-	PCON=0x00;
-	SCON = 0x50;		//8位数据,可变波特率
-	TMOD = 0x21;			//设定定时器1为16位自动重装方式
-	TL1 = 0xfa;			//设定定时初值
-	TH1 = 0xfa;			//设定定时初值
-	TR1 = 1;		//启动定时器1
-	EA=1;			//开总中断
-
-}
 /**************************************/
 void show()
 {
@@ -165,7 +128,6 @@ void Measure_Distance(void)
 {
 	uchar l;
 	uint h,y;
-	uchar temp[5];
 	TR0 = 1;
 	while(INPUT)
 	{
@@ -181,10 +143,6 @@ void Measure_Distance(void)
 	TH0 = 0xf8;
 	delayt(30);
 	distance = VELOCITY_30C * distance / 20000;
-   	memset(temp,0,sizeof(temp));
-	sprintf(temp,"%d",distance);
-	//UART1_Send_String("distance:");
-//	UART1_Send_String(temp);
 }
 
 /******************************************************************************/
