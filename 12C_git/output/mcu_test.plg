@@ -1,0 +1,293 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\write_1\Desktop\Ç¶ÈëÊ½\c51\Ä§Ö®Èª_12c\12C_git\mcu_test.uvproj
+Project File Date:  05/20/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  PWMINIT_B
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  STOP
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  RUNBACK
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 0177H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 017AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT_B
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01CFH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  RUNBACK
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01D2H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01F6H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01F9H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  STOP
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 021DH
+Program Size: data=28.0 xdata=0 code=1232
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 12 Warning(s).
+compiling mcu_test.c...
+mcu_test.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  PWMINIT_B
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  STOP
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  RUNBACK
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 0177H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 017AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT_B
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01CFH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  RUNBACK
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01D2H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01F6H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 01F9H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  STOP
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 021DH
+Program Size: data=28.0 xdata=0 code=1232
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 12 Warning(s).
+compiling mcu_test.c...
+mcu_test.c(183): warning C206: 'runfront': missing function-prototype
+mcu_test.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 02D8H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  RUNFRONT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 02DBH
+Program Size: data=28.0 xdata=0 code=1079
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 4 Warning(s).
+compiling mcu_test.c...
+mcu_test.c(183): warning C206: 'runfront': missing function-prototype
+mcu_test.c - 0 Error(s), 1 Warning(s).
+compiling mcu_test.c...
+mcu_test.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  PWMINIT
+    MODULE:  .\output\mcu_test.obj (MCU_TEST)
+    ADDRESS: 02D8H
+Program Size: data=28.0 xdata=0 code=1076
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=28.0 xdata=0 code=1073
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+mcu_test.c(32): warning C206: 'UART1_Send_Byte': missing function-prototype
+mcu_test.c(32): error C267: 'UART1_Send_Byte': requires ANSI-style prototype
+mcu_test.c(37): error C231: 'UART1_Send_Byte': redefinition
+mcu_test.c(41): error C231: 'UART1_Send_Byte': redefinition
+Target not created
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=28.0 xdata=0 code=1080
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=28.0 xdata=0 code=1080
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=24.0 xdata=0 code=1068
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=1068
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=24.0 xdata=0 code=1079
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+compiling mcu_test.c...
+mcu_test.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=1079
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+compiling mcu_test.c...
+mcu_test.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=1094
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+compiling mcu_test.c...
+mcu_test.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=1053
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=1053
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=24.0 xdata=0 code=1044
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=1044
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=24.0 xdata=0 code=1066
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=1066
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+mcu_test.c(175): warning C206: 'memset': missing function-prototype
+mcu_test.c(175): error C267: 'memset': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling mcu_test.c...
+mcu_test.c(175): warning C206: 'memset': missing function-prototype
+mcu_test.c(175): error C267: 'memset': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling mcu_test.c...
+mcu_test.c(4): warning C318: can't open file 'string.'
+mcu_test.c(176): warning C206: 'memset': missing function-prototype
+mcu_test.c(176): error C267: 'memset': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling mcu_test.c...
+mcu_test.c(4): warning C318: can't open file 'string.'
+mcu_test.c(176): warning C206: 'memset': missing function-prototype
+mcu_test.c(176): error C267: 'memset': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling mcu_test.c...
+mcu_test.c(4): warning C318: can't open file 'string.'
+mcu_test.c(176): warning C206: 'memset': missing function-prototype
+mcu_test.c(176): error C267: 'memset': requires ANSI-style prototype
+Target not created
+compiling mcu_test.c...
+mcu_test.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=44.1 xdata=0 code=2141
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=44.1 xdata=0 code=2160
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=44.1 xdata=0 code=2160
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling mcu_test.c...
+linking...
+Program Size: data=44.1 xdata=0 code=2173
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=44.1 xdata=0 code=2173
+creating hex file from ".\output\mcu_test"...
+".\output\mcu_test" - 0 Error(s), 0 Warning(s).
