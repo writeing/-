@@ -48,19 +48,19 @@ void setPWM(unsigned char dat)
 	switch(dat)
 	{
 		case 1:	
-			CCAP0H = 0X3F;	
+			CCAP0H = 0X78;	
 			CCAP0L = 0X3F;
 			break;
 		case 2:	
-			CCAP0H = 0XBF;	
+			CCAP0H = 0X7F;	
 			CCAP0L = 0XBF;
 			break;
 		case 3:	
-			CCAP0H = 0X3F;	
-			CCAP0L = 10;
+			CCAP0H = 0X7F;	
+			CCAP0L = 0x10;
 			break;
 		case 4:	
-			CCAP0H = 0X3F;	
+			CCAP0H = 0XFF;	
 			CCAP0L = 0X3F;
 			break;
 	}

@@ -2,6 +2,8 @@
 //5-20:
 (1)增加了超声波的测量.
 (2)增加了PWM调制，可以改变电压，于LM298一起
+//5-21：
+(1)去掉PWM用定时器1控制LM298电压输出
 
 *******************************************************/
 #include	<config.h>
@@ -17,9 +19,9 @@ sbit OUTPUT = P2^7;                //超声触发端口
 
 /********************************定义变量和数组********************************/
 long int distance=0;               //距离变量
-uchar count;
-int DPWM=1;
-int TPWM=0;
+uchar count=0;
+uchar DPWM=1;
+uchar TPWM=0;
 unsigned char a[4];
 uint DArray[10];
 uint Dflag=0;
@@ -82,8 +84,7 @@ void delayt(uint x)
 void Init_MCU(void)
 {
 	
-	//TMOD = 0x01;	  //定时器0初始化,设置为16位自动重装模式	与串口的TMOD配置重叠了
-	
+	//TMOD = 0x01;	  //定时器0初始化,设置为16位自动重装模式	与串口的TMOD配置重叠了	
  	TL0 = 0xcd;
 	TH0 = 0xf8;	      //1ms
     ET0 = 1;	      //开定时器0
@@ -160,47 +161,54 @@ void main(void)
 	Init_MCU();
 	Init_Parameter();
 	UartInit();
-//	PWMInit();
+	PWMInit();
 	Delay_xMs(30000);
 	while(1)
 	{
 		 
 		 Trig_SuperSonic();         //触发超声波发射
 		 while(INPUT == 0)          //等待回声
-     	{
+     	 {
         	;
-     	}
+     	 }
 		 Measure_Distance();        //计算脉宽并转换为距离
 		 DArray[Dflag++] = distance;
-		 delayt(10000);               //延时，两次发射之间要至少有10ms间隔
-	//	 addPWM(30);
+		 delayt(10);               //延时，两次发射之间要至少有10ms间隔
 		 if(Dflag==10)
-		 {		
-		 //	 reducePWM(250);
-		 	 TPWM = (TPWM+5)%30;	 			 
+		 {		 			 
 			 distance = 0; //清零，然后当做平均值
 			 Dflag = 0;	//记住有多少个数据被相加了
 			 for(i=0;i<10;i++)
 			 {
 				distance+=DArray[i];			
 			 }
-			 distance/=10;		  
-			 if(distance>40)
+			 distance/=10;
+			 //setPWM(distance/100);		  
+//			 switch(distance/100)			   //distance/100
+//			 {
+//			 	case 0:TPWM=3;break;	
+//			 	case 1:TPWM=4;break;	
+//				case 2:TPWM=5;break;
+//				case 3:TPWM=6;break;
+//				case 4:TPWM=7;break;
+//				case 5:TPWM=10;break;
+//				default :TPWM=10;
+//			 }
+			 switch(distance/100)			   //distance/100
 			 {
-			 	Dtemp = distance;
-			 //	setPWM(2);	
+			 	case 0:setPWM(1);break;	
+			 	case 1:setPWM(2);break;	
+				case 2:setPWM(3);break;
+				case 3:setPWM(4);break;
+				case 4:setPWM(4);break;
+				case 5:setPWM(4);break;
+				default :setPWM(4);
 			 }
-			 else
-			 {
-				if(distance>10&&distance<40)
-				{
-			 	//	setPWM(1);	
-				}		 	
-			 }	
+			 //UART1_Send_Byte(TPWM+'0');	
 			 show();
 			 UART1_Send_String("distance = ");
 			 UART1_Send_String(a);
-			 UART1_Send_String("\n");
+			 UART1_Send_String("\n"); 
 		 }//判断10次接受完成
 		 Init_Parameter();          // 参数重新初始化
 		 
@@ -220,13 +228,6 @@ void timer0 (void) interrupt 1
 	TL0 = 0xcd;
 	TH0 = 0xf8;
 	count++;	
-	DPWM++;
-	PWM=0;
-	if(DPWM == TPWM)
-	{
-		DPWM =0;
-		PWM=1;
-	}
 	if(count == 36)//超声波回声脉宽最多18ms
 	{
 		
@@ -235,6 +236,30 @@ void timer0 (void) interrupt 1
 		TH0 = 0xf8;
 		count = 0;
 	}
+}
+/******************************************************************************/
+
+/******************************************************************************/
+/* 函数名称  : timer1                                                         */
+/* 函数描述  : T1中断处理函数，                                                 */
+/* 输入参数  : 无                                                             */
+/* 参数描述  : 无                                                             */
+/* 返回值    : 无                                                             */
+/******************************************************************************/
+void timer1 (void) interrupt 3
+{
+	TF1 = 0;	
+	DPWM++;
+	if(DPWM == TPWM)
+	{
+		PWM=0;
+	}	
+	if(DPWM == 10)
+	{
+		DPWM =0;
+		PWM=1;
+	}
+	
 }
 /******************************************************************************/
 

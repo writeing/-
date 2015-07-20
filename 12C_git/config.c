@@ -25,5 +25,6 @@ void UartInit(void)		//9600bps@11.0592MHz
 	TH1 = 0xfa;			//设定定时初值
 	TR1 = 1;		//启动定时器1
 	EA=1;			//开总中断
+//	ET1 = 1;
 
 }
