@@ -16,11 +16,11 @@
 /************************************位定义************************************/
 sbit INPUT  = P2^6;                //回声接收端口,
 sbit OUTPUT = P2^7;                //超声触发端口
-
+sbit led = P4^4;
 /********************************定义变量和数组********************************/
 long int distance=0;               //距离变量
-uchar count=0;
-uchar DPWM=1;
+uint count=0;
+uint DPWM=1;
 uchar TPWM=0;
 unsigned char a[4];
 uint DArray[10];
@@ -158,61 +158,29 @@ void Measure_Distance(void)
 void main(void)
 {
 	int Dtemp=0,i;
+	char buff[10];
 	Init_MCU();
-	Init_Parameter();
 	UartInit();
 	PWMInit();
 	Delay_xMs(30000);
+	P4SW=0x70;
+	P4 = 0;
+	TR0 = 1;
+	UART1_Send_String("bbbbb"); 
 	while(1)
 	{
-		 
-		 Trig_SuperSonic();         //触发超声波发射
-		 while(INPUT == 0)          //等待回声
-     	 {
-        	;
-     	 }
-		 Measure_Distance();        //计算脉宽并转换为距离
-		 DArray[Dflag++] = distance;
-		 delayt(10);               //延时，两次发射之间要至少有10ms间隔
-		 if(Dflag==10)
-		 {		 			 
-			 distance = 0; //清零，然后当做平均值
-			 Dflag = 0;	//记住有多少个数据被相加了
-			 for(i=0;i<10;i++)
-			 {
-				distance+=DArray[i];			
-			 }
-			 distance/=10;
-			 //setPWM(distance/100);		  
-//			 switch(distance/100)			   //distance/100
-//			 {
-//			 	case 0:TPWM=3;break;	
-//			 	case 1:TPWM=4;break;	
-//				case 2:TPWM=5;break;
-//				case 3:TPWM=6;break;
-//				case 4:TPWM=7;break;
-//				case 5:TPWM=10;break;
-//				default :TPWM=10;
-//			 }
-			 switch(distance/100)			   //distance/100
-			 {
-			 	case 0:setPWM(1);break;	
-			 	case 1:setPWM(2);break;	
-				case 2:setPWM(3);break;
-				case 3:setPWM(4);break;
-				case 4:setPWM(4);break;
-				case 5:setPWM(4);break;
-				default :setPWM(4);
-			 }
-			 //UART1_Send_Byte(TPWM+'0');	
-			 show();
-			 UART1_Send_String("distance = ");
-			 UART1_Send_String(a);
-			 UART1_Send_String("\n"); 
-		 }//判断10次接受完成
-		 Init_Parameter();          // 参数重新初始化
-		 
-	 }	
+		if(CCAP0H>220)
+		{
+			CCAP0H = 0;
+		}
+		if(CCAP0L>220)
+		{
+			CCAP0L = 0;
+			sprintf(buff,"%d",CCAP0H);
+			UART1_Send_String(buff);
+		}		
+		
+	}	
 }
 
 /******************************************************************************/
@@ -227,13 +195,13 @@ void timer0 (void) interrupt 1
 	TF0 = 0;
 	TL0 = 0xcd;
 	TH0 = 0xf8;
-	count++;	
-	if(count == 36)//超声波回声脉宽最多18ms
+	count++;
+	led = 0;
+	if(count == 1000)//超声波回声脉宽最多18ms
 	{
-		
-		TR0 =0;
-		TL0 = 0xcd;
-		TH0 = 0xf8;
+		led = 1;
+		CCAP0L+=10;
+		CCAP0H+=10;
 		count = 0;
 	}
 }
@@ -250,16 +218,10 @@ void timer1 (void) interrupt 3
 {
 	TF1 = 0;	
 	DPWM++;
-	if(DPWM == TPWM)
-	{
-		PWM=0;
-	}	
-	if(DPWM == 10)
-	{
-		DPWM =0;
-		PWM=1;
-	}
-	
+	led = 0;
+	if(DPWM > 1000)
+	{ 
+	}		
 }
 /******************************************************************************/
 

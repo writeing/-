@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        05/20/2015  17:32:42  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/24/2015  19:20:45  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -17,12 +17,15 @@ INPUT MODULES INCLUDED:
   D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
   D:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
   D:\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
-  D:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
   D:\KEIL\C51\LIB\C51S.LIB (?C?LMUL)
   D:\KEIL\C51\LIB\C51S.LIB (?C?SLDIV)
-  D:\KEIL\C51\LIB\C51S.LIB (?C?SLCMP)
-  D:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  D:\KEIL\C51\LIB\C51S.LIB (PRINTF)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CSTPTR)
   D:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  D:\KEIL\C51\LIB\C51S.LIB (PUTCHAR)
 
 
 LINK MAP OF MODULE:  .\output\mcu_test (?C_STARTUP)
@@ -33,72 +36,73 @@ LINK MAP OF MODULE:  .\output\mcu_test (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0023H     UNIT         ?DT?MCU_TEST
-            DATA    002BH     0008H     UNIT         _DATA_GROUP_
-            IDATA   0033H     0001H     UNIT         ?STACK
+            DATA    0008H     0006H     UNIT         ?DT?SHOW?MCU_TEST
+                    000EH     0012H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     0023H     UNIT         ?DT?MCU_TEST
+            DATA    0045H     0022H     UNIT         _DATA_GROUP_
+            IDATA   0067H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
             CODE    0003H     0008H     UNIT         ?PR?_UART1_SEND_BYTE?CONFIG
             CODE    000BH     0003H     ABSOLUTE     
-            CODE    000EH     01E9H     UNIT         ?C?LIB_CODE
-            CODE    01F7H     00ECH     UNIT         ?PR?MAIN?MCU_TEST
-            CODE    02E3H     008CH     UNIT         ?C_C51STARTUP
-            CODE    036FH     0084H     UNIT         ?PR?SHOW?MCU_TEST
-            CODE    03F3H     006AH     UNIT         ?PR?MEASURE_DISTANCE?MCU_TEST
-            CODE    045DH     0044H     UNIT         ?C?LDIV
-            CODE    04A1H     003DH     UNIT         ?PR?TIMER0?MCU_TEST
-            CODE    04DEH     0027H     UNIT         ?PR?_ADDPWM?MCU_PWM
-            CODE    0505H     0026H     UNIT         ?PR?_SETPWM?MCU_PWM
-            CODE    052BH     0025H     UNIT         ?PR?_UART1_SEND_STRING?CONFIG
-            CODE    0550H     0020H     UNIT         ?PR?_DELAY_XMS?MCU_TEST
-            CODE    0570H     001DH     UNIT         ?PR?_REDUCEPWM?MCU_PWM
-            CODE    058DH     001BH     UNIT         ?PR?_DELAYT?MCU_TEST
-            CODE    05A8H     0017H     UNIT         ?PR?PWMINIT?MCU_PWM
-            CODE    05BFH     0014H     UNIT         ?PR?UARTINIT?CONFIG
-            CODE    05D3H     0013H     UNIT         ?C_INITSEG
-            CODE    05E6H     0010H     UNIT         ?PR?INIT_PARAMETER?MCU_TEST
-            CODE    05F6H     000EH     UNIT         ?CO?MCU_TEST
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 2
+            CODE    000EH     000CH     UNIT         ?PR?TRIG_SUPERSONIC?MCU_TEST
+                    001AH     0001H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    037AH     01BDH     UNIT         ?C?LIB_CODE
+            CODE    0537H     008CH     UNIT         ?C_C51STARTUP
+            CODE    05C3H     0084H     UNIT         ?PR?SHOW?MCU_TEST
+            CODE    0647H     006AH     UNIT         ?PR?MEASURE_DISTANCE?MCU_TEST
+            CODE    06B1H     0059H     UNIT         ?PR?MAIN?MCU_TEST
+            CODE    070AH     0044H     UNIT         ?C?LDIV
+            CODE    074EH     0037H     UNIT         ?PR?TIMER0?MCU_TEST
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 2
 
 
-            CODE    0604H     000CH     UNIT         ?PR?TRIG_SUPERSONIC?MCU_TEST
-            CODE    0610H     000BH     UNIT         ?PR?INIT_MCU?MCU_TEST
+            CODE    0785H     0029H     UNIT         ?PR?_SETPWM?MCU_PWM
+            CODE    07AEH     0027H     UNIT         ?PR?_ADDPWM?MCU_PWM
+            CODE    07D5H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    07FCH     0025H     UNIT         ?PR?_UART1_SEND_STRING?CONFIG
+            CODE    0821H     0020H     UNIT         ?PR?_DELAY_XMS?MCU_TEST
+            CODE    0841H     001DH     UNIT         ?PR?_REDUCEPWM?MCU_PWM
+            CODE    085EH     001BH     UNIT         ?PR?_DELAYT?MCU_TEST
+            CODE    0879H     0017H     UNIT         ?PR?PWMINIT?MCU_PWM
+            CODE    0890H     0016H     UNIT         ?C_INITSEG
+            CODE    08A6H     0014H     UNIT         ?PR?UARTINIT?CONFIG
+            CODE    08BAH     0012H     UNIT         ?PR?INIT_PARAMETER?MCU_TEST
+            CODE    08CCH     0011H     UNIT         ?PR?TIMER1?MCU_TEST
+            CODE    08DDH     000BH     UNIT         ?PR?INIT_MCU?MCU_TEST
+            CODE    08E8H     0009H     UNIT         ?CO?MCU_TEST
 
 
 
 OVERLAY MAP OF MODULE:   .\output\mcu_test (?C_STARTUP)
 
 
-SEGMENT                                 DATA_GROUP 
-  +--> CALLED SEGMENT                 START    LENGTH
------------------------------------------------------
-?C_C51STARTUP                         -----    -----
+SEGMENT                                  BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                 START    LENGTH     START    LENGTH
+-------------------------------------------------------------------------
+?C_C51STARTUP                         -----    -----      -----    -----
   +--> ?PR?MAIN?MCU_TEST
   +--> ?C_INITSEG
 
-?PR?MAIN?MCU_TEST                     002BH    0002H
+?PR?MAIN?MCU_TEST                     -----    -----      0045H    000EH
   +--> ?PR?INIT_MCU?MCU_TEST
-  +--> ?PR?INIT_PARAMETER?MCU_TEST
   +--> ?PR?UARTINIT?CONFIG
+  +--> ?PR?PWMINIT?MCU_PWM
   +--> ?PR?_DELAY_XMS?MCU_TEST
-  +--> ?PR?TRIG_SUPERSONIC?MCU_TEST
-  +--> ?PR?MEASURE_DISTANCE?MCU_TEST
-  +--> ?PR?_DELAYT?MCU_TEST
-  +--> ?PR?SHOW?MCU_TEST
   +--> ?CO?MCU_TEST
   +--> ?PR?_UART1_SEND_STRING?CONFIG
+  +--> ?PR?PRINTF?PRINTF
 
-?PR?TRIG_SUPERSONIC?MCU_TEST          -----    -----
-  +--> ?PR?_DELAYT?MCU_TEST
-
-?PR?MEASURE_DISTANCE?MCU_TEST         -----    -----
-  +--> ?PR?_DELAYT?MCU_TEST
-
-?PR?SHOW?MCU_TEST                     002DH    0006H
-
-?PR?_UART1_SEND_STRING?CONFIG         002DH    0003H
+?PR?_UART1_SEND_STRING?CONFIG         -----    -----      0053H    0003H
   +--> ?PR?_UART1_SEND_BYTE?CONFIG
+
+?PR?PRINTF?PRINTF                     0020H.0  0001H.1    0053H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
 
 
 
@@ -108,20 +112,20 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:02E3H         SEGMENT       ?C_C51STARTUP
-  I:0033H         SEGMENT       ?STACK
+  C:0537H         SEGMENT       ?C_C51STARTUP
+  I:0067H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
   D:0083H         SYMBOL        DPH
   D:0082H         SYMBOL        DPL
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 3
+
+
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:02E6H         SYMBOL        IDATALOOP
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 3
-
-
+  C:053AH         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -130,74 +134,80 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:02E3H         SYMBOL        STARTUP1
+  C:0537H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:02E3H         LINE#         133
-  C:02E5H         LINE#         134
-  C:02E6H         LINE#         135
-  C:02E7H         LINE#         136
-  C:02E9H         LINE#         185
-  C:02ECH         LINE#         196
+  C:0537H         LINE#         133
+  C:0539H         LINE#         134
+  C:053AH         LINE#         135
+  C:053BH         LINE#         136
+  C:053DH         LINE#         185
+  C:0540H         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        MCU_TEST
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
+  D:00C0H         PUBLIC        P4
   B:00A8H.7       PUBLIC        EA
-  C:058DH         PUBLIC        _delayt
-  C:0604H         PUBLIC        Trig_SuperSonic
-  C:0550H         PUBLIC        _Delay_xMs
+  C:085EH         PUBLIC        _delayt
+  C:000EH         PUBLIC        Trig_SuperSonic
+  C:0821H         PUBLIC        _Delay_xMs
   D:00A8H         PUBLIC        IE
+  D:00FAH         PUBLIC        CCAP0H
   B:00A0H.6       PUBLIC        INPUT
+  D:00EAH         PUBLIC        CCAP0L
   D:00B8H         PUBLIC        IP
-  C:05E6H         PUBLIC        Init_Parameter
+  C:08BAH         PUBLIC        Init_Parameter
   D:00D8H         PUBLIC        CCON
-  C:01F7H         PUBLIC        main
-  D:0008H         PUBLIC        count
+  C:06B1H         PUBLIC        main
+  D:0022H         PUBLIC        count
+  D:00BBH         PUBLIC        P4SW
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  D:0009H         PUBLIC        DPWM
-  C:036FH         PUBLIC        show
-  D:000BH         PUBLIC        DArray
-  D:001FH         PUBLIC        TPWM
+  B:00C0H.4       PUBLIC        led
+  D:0024H         PUBLIC        DPWM
+  C:05C3H         PUBLIC        show
+  D:0026H         PUBLIC        DArray
+  D:003AH         PUBLIC        TPWM
   B:00A8H.1       PUBLIC        ET0
   B:0088H.5       PUBLIC        TF0
+  B:0088H.7       PUBLIC        TF1
   D:008CH         PUBLIC        TH0
-  D:0021H         PUBLIC        distance
+  D:003BH         PUBLIC        distance
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 4
+
+
   D:008AH         PUBLIC        TL0
-  C:04A1H         PUBLIC        timer0
+  C:074EH         PUBLIC        timer0
+  C:08CCH         PUBLIC        timer1
   B:0088H.4       PUBLIC        TR0
-  C:0610H         PUBLIC        Init_MCU
-  D:0025H         PUBLIC        Dflag
-  D:0027H         PUBLIC        a
-  C:03F3H         PUBLIC        Measure_Distance
+  C:08DDH         PUBLIC        Init_MCU
+  D:003FH         PUBLIC        Dflag
+  D:0041H         PUBLIC        a
+  C:0647H         PUBLIC        Measure_Distance
   B:00A0H.7       PUBLIC        OUTPUT
-  B:0090H.3       PUBLIC        PWM
   D:00D0H         PUBLIC        PSW
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 4
-
-
   -------         PROC          SHOW
   -------         DO            
-  D:002DH         SYMBOL        ge
-  D:002FH         SYMBOL        shi
-  D:0031H         SYMBOL        bai
+  D:0008H         SYMBOL        ge
+  D:000AH         SYMBOL        shi
+  D:000CH         SYMBOL        bai
   -------         ENDDO         
-  C:036FH         LINE#         28
-  C:036FH         LINE#         29
-  C:036FH         LINE#         31
-  C:0388H         LINE#         32
-  C:03AAH         LINE#         33
-  C:03CCH         LINE#         34
-  C:03E3H         LINE#         35
-  C:03E9H         LINE#         36
-  C:03EFH         LINE#         37
-  C:03F2H         LINE#         38
+  C:05C3H         LINE#         30
+  C:05C3H         LINE#         31
+  C:05C3H         LINE#         33
+  C:05DCH         LINE#         34
+  C:05FEH         LINE#         35
+  C:0620H         LINE#         36
+  C:0637H         LINE#         37
+  C:063DH         LINE#         38
+  C:0643H         LINE#         39
+  C:0646H         LINE#         40
   -------         ENDPROC       SHOW
   -------         PROC          _DELAY_XMS
   D:0006H         SYMBOL        x
@@ -205,59 +215,59 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
   -------         ENDDO         
-  C:0550H         LINE#         46
-  C:0550H         LINE#         47
-  C:0550H         LINE#         49
-  C:055AH         LINE#         50
-  C:055AH         LINE#         51
-  C:055DH         LINE#         52
-  C:055DH         LINE#         54
-  C:0568H         LINE#         55
-  C:056FH         LINE#         56
+  C:0821H         LINE#         48
+  C:0821H         LINE#         49
+  C:0821H         LINE#         51
+  C:082BH         LINE#         52
+  C:082BH         LINE#         53
+  C:082EH         LINE#         54
+  C:082EH         LINE#         56
+  C:0839H         LINE#         57
+  C:0840H         LINE#         58
   -------         ENDPROC       _DELAY_XMS
   -------         PROC          _DELAYT
   D:0006H         SYMBOL        x
   -------         DO            
   D:0005H         SYMBOL        j
   -------         ENDDO         
-  C:058DH         LINE#         64
-  C:058DH         LINE#         65
-  C:058DH         LINE#         67
-  C:059CH         LINE#         68
-  C:059CH         LINE#         69
-  C:05A4H         LINE#         70
-  C:05A4H         LINE#         72
-  C:05A7H         LINE#         73
-  C:05A7H         LINE#         74
+  C:085EH         LINE#         66
+  C:085EH         LINE#         67
+  C:085EH         LINE#         69
+  C:086DH         LINE#         70
+  C:086DH         LINE#         71
+  C:0875H         LINE#         72
+  C:0875H         LINE#         74
+  C:0878H         LINE#         75
+  C:0878H         LINE#         76
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 5
+
+
   -------         ENDPROC       _DELAYT
   -------         PROC          INIT_MCU
-  C:0610H         LINE#         82
-  C:0610H         LINE#         83
-  C:0610H         LINE#         87
-  C:0613H         LINE#         88
-  C:0616H         LINE#         89
-  C:0618H         LINE#         90
-  C:061AH         LINE#         91
+  C:08DDH         LINE#         84
+  C:08DDH         LINE#         85
+  C:08DDH         LINE#         88
+  C:08E0H         LINE#         89
+  C:08E3H         LINE#         90
+  C:08E5H         LINE#         91
+  C:08E7H         LINE#         92
   -------         ENDPROC       INIT_MCU
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 5
-
-
   -------         PROC          INIT_PARAMETER
-  C:05E6H         LINE#         100
-  C:05E6H         LINE#         101
-  C:05E6H         LINE#         102
-  C:05E8H         LINE#         103
-  C:05EAH         LINE#         104
-  C:05EDH         LINE#         105
-  C:05F5H         LINE#         106
+  C:08BAH         LINE#         101
+  C:08BAH         LINE#         102
+  C:08BAH         LINE#         103
+  C:08BCH         LINE#         104
+  C:08BEH         LINE#         105
+  C:08C3H         LINE#         106
+  C:08CBH         LINE#         107
   -------         ENDPROC       INIT_PARAMETER
   -------         PROC          TRIG_SUPERSONIC
-  C:0604H         LINE#         115
-  C:0604H         LINE#         116
-  C:0604H         LINE#         117
-  C:0606H         LINE#         118
-  C:060DH         LINE#         119
-  C:060FH         LINE#         120
+  C:000EH         LINE#         116
+  C:000EH         LINE#         117
+  C:000EH         LINE#         118
+  C:0010H         LINE#         119
+  C:0017H         LINE#         120
+  C:0019H         LINE#         121
   -------         ENDPROC       TRIG_SUPERSONIC
   -------         PROC          MEASURE_DISTANCE
   -------         DO            
@@ -265,107 +275,94 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
   D:0006H         SYMBOL        h
   D:0002H         SYMBOL        y
   -------         ENDDO         
-  C:03F3H         LINE#         129
-  C:03F3H         LINE#         130
-  C:03F3H         LINE#         133
-  C:03F5H         LINE#         134
-  C:03F8H         LINE#         135
-  C:03F8H         LINE#         137
-  C:03F8H         LINE#         138
-  C:03FAH         LINE#         139
-  C:03FCH         LINE#         140
-  C:03FEH         LINE#         141
-  C:040AH         LINE#         142
-  C:0412H         LINE#         143
-  C:042CH         LINE#         144
-  C:042FH         LINE#         145
-  C:0432H         LINE#         146
-  C:0438H         LINE#         147
-  C:045CH         LINE#         148
+  C:0647H         LINE#         130
+  C:0647H         LINE#         131
+  C:0647H         LINE#         134
+  C:0649H         LINE#         135
+  C:064CH         LINE#         136
+  C:064CH         LINE#         138
+  C:064CH         LINE#         139
+  C:064EH         LINE#         140
+  C:0650H         LINE#         141
+  C:0652H         LINE#         142
+  C:065EH         LINE#         143
+  C:0666H         LINE#         144
+  C:0680H         LINE#         145
+  C:0683H         LINE#         146
+  C:0686H         LINE#         147
+  C:068CH         LINE#         148
+  C:06B0H         LINE#         149
   -------         ENDPROC       MEASURE_DISTANCE
   -------         PROC          MAIN
   -------         DO            
-  D:002BH         SYMBOL        Dtemp
-  D:0002H         SYMBOL        i
+  D:0045H         SYMBOL        Dtemp
+  D:0047H         SYMBOL        i
+  D:0049H         SYMBOL        buff
   -------         ENDDO         
-  C:01F7H         LINE#         157
-  C:01F7H         LINE#         158
-  C:01F7H         LINE#         159
-  C:01FCH         LINE#         160
-  C:01FFH         LINE#         161
-  C:0202H         LINE#         162
-  C:0205H         LINE#         164
-  C:020CH         LINE#         165
-  C:020CH         LINE#         166
-  C:020CH         LINE#         168
-  C:020FH         LINE#         169
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 6
 
 
-  C:0212H         LINE#         170
-  C:0212H         LINE#         172
-  C:0212H         LINE#         173
-  C:0215H         LINE#         174
-  C:022AH         LINE#         175
-  C:0231H         LINE#         177
-  C:023CH         LINE#         178
-  C:023CH         LINE#         180
-  C:0250H         LINE#         181
-  C:0259H         LINE#         182
-  C:025DH         LINE#         183
-  C:025FH         LINE#         184
-  C:025FH         LINE#         185
-  C:0281H         LINE#         186
-  C:028CH         LINE#         187
-  C:02A5H         LINE#         188
-  C:02B9H         LINE#         189
-  C:02B9H         LINE#         190
-  C:02BFH         LINE#         192
-  C:02BFH         LINE#         194
-  C:02BFH         LINE#         195
-  C:02BFH         LINE#         196
-  C:02BFH         LINE#         198
-  C:02BFH         LINE#         199
-  C:02BFH         LINE#         200
-  C:02C2H         LINE#         201
-  C:02CBH         LINE#         202
-  C:02D4H         LINE#         203
-  C:02DDH         LINE#         204
-  C:02DDH         LINE#         205
-  C:02E0H         LINE#         207
+  C:06B1H         LINE#         158
+  C:06B1H         LINE#         159
+  C:06B1H         LINE#         160
+  C:06B6H         LINE#         162
+  C:06B9H         LINE#         163
+  C:06BCH         LINE#         164
+  C:06BFH         LINE#         165
+  C:06C6H         LINE#         166
+  C:06C9H         LINE#         167
+  C:06CCH         LINE#         168
+  C:06CEH         LINE#         169
+  C:06D7H         LINE#         170
+  C:06D7H         LINE#         171
+  C:06D7H         LINE#         172
+  C:06DEH         LINE#         173
+  C:06DEH         LINE#         174
+  C:06E1H         LINE#         175
+  C:06E1H         LINE#         176
+  C:06E8H         LINE#         177
+  C:06E8H         LINE#         178
+  C:06EBH         LINE#         179
+  C:06FFH         LINE#         180
+  C:0708H         LINE#         181
+  C:0708H         LINE#         183
   -------         ENDPROC       MAIN
   -------         PROC          TIMER0
-  C:04A1H         LINE#         217
-  C:04A5H         LINE#         219
-  C:04A7H         LINE#         220
-  C:04AAH         LINE#         221
-  C:04ADH         LINE#         222
-  C:04AFH         LINE#         223
-  C:04B7H         LINE#         224
-  C:04B9H         LINE#         225
-  C:04C1H         LINE#         226
-  C:04C1H         LINE#         227
-  C:04C7H         LINE#         228
-  C:04C9H         LINE#         229
-  C:04C9H         LINE#         230
-  C:04CEH         LINE#         231
-  C:04CEH         LINE#         233
-  C:04D0H         LINE#         234
-  C:04D3H         LINE#         235
-  C:04D6H         LINE#         236
-  C:04D9H         LINE#         237
-  C:04D9H         LINE#         238
+  C:074EH         LINE#         193
+  C:0752H         LINE#         195
+  C:0754H         LINE#         196
+  C:0757H         LINE#         197
+  C:075AH         LINE#         198
+  C:0762H         LINE#         199
+  C:0764H         LINE#         200
+  C:076CH         LINE#         201
+  C:076CH         LINE#         202
+  C:076EH         LINE#         203
+  C:0774H         LINE#         204
+  C:077AH         LINE#         205
+  C:0780H         LINE#         206
+  C:0780H         LINE#         207
   -------         ENDPROC       TIMER0
+  -------         PROC          TIMER1
+  C:08CCH         LINE#         217
+  C:08CEH         LINE#         219
+  C:08D0H         LINE#         220
+  C:08D8H         LINE#         221
+  C:08DAH         LINE#         222
+  C:08DAH         LINE#         223
+  C:08DAH         LINE#         224
+  C:08DAH         LINE#         225
+  -------         ENDPROC       TIMER1
   -------         ENDMOD        MCU_TEST
 
   -------         MODULE        MCU_PWM
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 7
-
-
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
   D:00F9H         PUBLIC        CH
-  C:05A8H         PUBLIC        PWMInit
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 7
+
+
+  C:0879H         PUBLIC        PWMInit
   D:00A8H         PUBLIC        IE
   D:00E9H         PUBLIC        CL
   D:00FAH         PUBLIC        CCAP0H
@@ -373,85 +370,86 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
   B:00D8H.6       PUBLIC        CR
   D:00DAH         PUBLIC        CCAPM0
   D:00B8H         PUBLIC        IP
-  C:04DEH         PUBLIC        _addPWM
+  C:07AEH         PUBLIC        _addPWM
   D:00D9H         PUBLIC        CMOD
   D:00D8H         PUBLIC        CCON
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:0505H         PUBLIC        _setPWM
+  C:0785H         PUBLIC        _setPWM
   D:00F2H         PUBLIC        PCA_PWM0
-  C:0570H         PUBLIC        _reducePWM
+  C:0841H         PUBLIC        _reducePWM
   D:00D0H         PUBLIC        PSW
   -------         PROC          PWMINIT
-  C:05A8H         LINE#         7
-  C:05A8H         LINE#         8
-  C:05A8H         LINE#         9
-  C:05ABH         LINE#         10
-  C:05ADH         LINE#         11
-  C:05AFH         LINE#         12
-  C:05B1H         LINE#         13
-  C:05B3H         LINE#         14
-  C:05B6H         LINE#         15
-  C:05B9H         LINE#         16
-  C:05BCH         LINE#         17
-  C:05BEH         LINE#         19
+  C:0879H         LINE#         7
+  C:0879H         LINE#         8
+  C:0879H         LINE#         9
+  C:087CH         LINE#         10
+  C:087EH         LINE#         11
+  C:0880H         LINE#         12
+  C:0882H         LINE#         13
+  C:0884H         LINE#         14
+  C:0887H         LINE#         15
+  C:088AH         LINE#         16
+  C:088DH         LINE#         17
+  C:088FH         LINE#         19
   -------         ENDPROC       PWMINIT
   -------         PROC          _ADDPWM
   D:0007H         SYMBOL        dat
-  C:04DEH         LINE#         20
-  C:04DEH         LINE#         21
-  C:04DEH         LINE#         22
-  C:04F3H         LINE#         23
-  C:04F3H         LINE#         24
-  C:04F6H         LINE#         25
-  C:04F9H         LINE#         26
-  C:04FAH         LINE#         28
-  C:04FAH         LINE#         29
-  C:04FFH         LINE#         30
-  C:0504H         LINE#         31
-  C:0504H         LINE#         32
+  C:07AEH         LINE#         20
+  C:07AEH         LINE#         21
+  C:07AEH         LINE#         22
+  C:07C3H         LINE#         23
+  C:07C3H         LINE#         24
+  C:07C6H         LINE#         25
+  C:07C9H         LINE#         26
+  C:07CAH         LINE#         28
+  C:07CAH         LINE#         29
+  C:07CFH         LINE#         30
+  C:07D4H         LINE#         31
+  C:07D4H         LINE#         32
   -------         ENDPROC       _ADDPWM
   -------         PROC          _REDUCEPWM
   D:0007H         SYMBOL        dat
-  C:0570H         LINE#         33
-  C:0570H         LINE#         34
-  C:0570H         LINE#         35
-  C:0579H         LINE#         36
-  C:0579H         LINE#         37
-  C:057CH         LINE#         38
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 8
+  C:0841H         LINE#         33
+  C:0841H         LINE#         34
+  C:0841H         LINE#         35
+  C:084AH         LINE#         36
+  C:084AH         LINE#         37
+  C:084DH         LINE#         38
+  C:0850H         LINE#         39
+  C:0851H         LINE#         41
+  C:0851H         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 8
 
 
-  C:057FH         LINE#         39
-  C:0580H         LINE#         41
-  C:0580H         LINE#         42
-  C:0586H         LINE#         43
-  C:058CH         LINE#         44
-  C:058CH         LINE#         45
+  C:0857H         LINE#         43
+  C:085DH         LINE#         44
+  C:085DH         LINE#         45
   -------         ENDPROC       _REDUCEPWM
   -------         PROC          _SETPWM
   D:0007H         SYMBOL        dat
-  C:0505H         LINE#         46
-  C:0505H         LINE#         47
-  C:0505H         LINE#         48
-  C:0514H         LINE#         49
-  C:0514H         LINE#         50
-  C:0514H         LINE#         51
-  C:0514H         LINE#         52
-  C:0514H         LINE#         53
-  C:0516H         LINE#         54
-  C:0516H         LINE#         55
-  C:0519H         LINE#         56
-  C:051CH         LINE#         57
-  C:051DH         LINE#         58
-  C:051DH         LINE#         59
-  C:0520H         LINE#         60
-  C:0523H         LINE#         61
-  C:0524H         LINE#         62
-  C:0527H         LINE#         64
-  C:052AH         LINE#         65
-  C:052AH         LINE#         66
-  C:052AH         LINE#         68
+  C:0785H         LINE#         46
+  C:0785H         LINE#         47
+  C:0785H         LINE#         48
+  C:0794H         LINE#         49
+  C:0794H         LINE#         50
+  C:0794H         LINE#         51
+  C:0797H         LINE#         52
+  C:0797H         LINE#         53
+  C:0799H         LINE#         54
+  C:0799H         LINE#         55
+  C:079CH         LINE#         56
+  C:079FH         LINE#         57
+  C:07A0H         LINE#         58
+  C:07A0H         LINE#         59
+  C:07A3H         LINE#         60
+  C:07A6H         LINE#         61
+  C:07A7H         LINE#         62
+  C:07A7H         LINE#         63
+  C:07AAH         LINE#         64
+  C:07ADH         LINE#         65
+  C:07ADH         LINE#         66
+  C:07ADH         LINE#         68
   -------         ENDPROC       _SETPWM
   -------         ENDMOD        MCU_PWM
 
@@ -465,10 +463,10 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
   D:0099H         PUBLIC        SBUF
   D:0087H         PUBLIC        PCON
   D:0098H         PUBLIC        SCON
-  C:05BFH         PUBLIC        UartInit
+  C:08A6H         PUBLIC        UartInit
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
-  C:052BH         PUBLIC        _UART1_Send_String
+  C:07FCH         PUBLIC        _UART1_Send_String
   D:008DH         PUBLIC        TH1
   D:008BH         PUBLIC        TL1
   C:0003H         PUBLIC        _UART1_Send_Byte
@@ -479,74 +477,102 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
   C:0003H         LINE#         4
   C:0003H         LINE#         5
   C:0003H         LINE#         6
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 9
-
-
   C:0005H         LINE#         7
   C:0008H         LINE#         8
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 9
+
+
   C:000AH         LINE#         9
   -------         ENDPROC       _UART1_SEND_BYTE
   -------         PROC          _UART1_SEND_STRING
-  D:002DH         SYMBOL        str
-  C:052BH         LINE#         11
-  C:0531H         LINE#         12
-  C:0531H         LINE#         13
-  C:053CH         LINE#         14
-  C:053CH         LINE#         15
-  C:054DH         LINE#         16
-  C:054FH         LINE#         17
+  D:0053H         SYMBOL        str
+  C:07FCH         LINE#         11
+  C:0802H         LINE#         12
+  C:0802H         LINE#         13
+  C:080DH         LINE#         14
+  C:080DH         LINE#         15
+  C:081EH         LINE#         16
+  C:0820H         LINE#         17
   -------         ENDPROC       _UART1_SEND_STRING
   -------         PROC          UARTINIT
-  C:05BFH         LINE#         19
-  C:05BFH         LINE#         20
-  C:05BFH         LINE#         21
-  C:05C2H         LINE#         22
-  C:05C5H         LINE#         23
-  C:05C8H         LINE#         24
-  C:05CBH         LINE#         25
-  C:05CEH         LINE#         26
-  C:05D0H         LINE#         27
-  C:05D2H         LINE#         29
+  C:08A6H         LINE#         19
+  C:08A6H         LINE#         20
+  C:08A6H         LINE#         21
+  C:08A9H         LINE#         22
+  C:08ACH         LINE#         23
+  C:08AFH         LINE#         24
+  C:08B2H         LINE#         25
+  C:08B5H         LINE#         26
+  C:08B7H         LINE#         27
+  C:08B9H         LINE#         30
   -------         ENDPROC       UARTINIT
   -------         ENDMOD        CONFIG
 
   -------         MODULE        ?C?CLDPTR
-  C:000EH         PUBLIC        ?C?CLDPTR
+  C:037AH         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
 
   -------         MODULE        ?C?IMUL
-  C:0027H         PUBLIC        ?C?IMUL
+  C:0393H         PUBLIC        ?C?IMUL
   -------         ENDMOD        ?C?IMUL
 
-  -------         MODULE        ?C?SIDIV
-  C:0039H         PUBLIC        ?C?SIDIV
-  -------         ENDMOD        ?C?SIDIV
-
   -------         MODULE        ?C?LMUL
-  C:006FH         PUBLIC        ?C?LMUL
+  C:03A5H         PUBLIC        ?C?LMUL
   -------         ENDMOD        ?C?LMUL
 
   -------         MODULE        ?C?SLDIV
-  C:045DH         PUBLIC        ?C?SLDIV
+  C:070AH         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
-  -------         MODULE        ?C?SLCMP
-  C:00BEH         PUBLIC        ?C?SLCMP
-  -------         ENDMOD        ?C?SLCMP
+  -------         MODULE        PRINTF
+  D:0053H         PUBLIC        ?_PRINTF517?BYTE
+  D:0053H         PUBLIC        ?_PRINTF?BYTE
+  D:0053H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0053H         PUBLIC        ?_SPRINTF?BYTE
+  C:0080H         PUBLIC        _PRINTF
+  C:0080H         PUBLIC        _PRINTF517
+  C:007AH         PUBLIC        _SPRINTF
+  C:007AH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
 
-  -------         MODULE        ?C?UIDIV
-  C:00D4H         PUBLIC        ?C?UIDIV
-  -------         ENDMOD        ?C?UIDIV
+  -------         MODULE        ?C?CLDOPTR
+  C:03F4H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2015  19:20:45  PAGE 10
+
+
+  -------         MODULE        ?C?CSTPTR
+  C:0421H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
 
   -------         MODULE        ?C?ULDIV
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/20/2015  17:32:42  PAGE 10
-
-
-  C:0165H         PUBLIC        ?C?ULDIV
+  C:046FH         PUBLIC        ?C?ULDIV
   -------         ENDMOD        ?C?ULDIV
 
+  -------         MODULE        ?C?PLDIIDATA
+  C:0501H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0511H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:07D5H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
+    SEGMENT: ?PR?SHOW?MCU_TEST
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT_PARAMETER?MCU_TEST
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TRIG_SUPERSONIC?MCU_TEST
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MEASURE_DISTANCE?MCU_TEST
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_ADDPWM?MCU_PWM
@@ -557,5 +583,5 @@ SYMBOL TABLE OF MODULE:  .\output\mcu_test (?C_STARTUP)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_SETPWM?MCU_PWM
 
-Program Size: data=52.0 xdata=0 code=1563
-LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)
+Program Size: data=85.1 xdata=0 code=2288
+LINK/LOCATE RUN COMPLETE.  7 WARNING(S),  0 ERROR(S)

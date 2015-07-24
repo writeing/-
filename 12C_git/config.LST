@@ -1,4 +1,4 @@
-C51 COMPILER V9.03   CONFIG                                                                05/20/2015 16:28:22 PAGE 1   
+C51 COMPILER V9.03   CONFIG                                                                05/27/2015 11:49:20 PAGE 1   
 
 
 C51 COMPILER V9.03, COMPILATION OF MODULE CONFIG
@@ -34,8 +34,9 @@ line level    source
   25   1              TH1 = 0xfa;                     //设定定时初值
   26   1              TR1 = 1;                //启动定时器1
   27   1              EA=1;                   //开总中断
-  28   1      
-  29   1      }
+  28   1      //      ET1 = 1;
+  29   1      
+  30   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

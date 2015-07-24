@@ -7,256 +7,69 @@ C:\Users\write_1\Desktop\Ƕ��ʽ\c51\ħ֮Ȫ_12c\12C_git\mcu_test.uvproj
 Project File Date:  05/20/2015
 
 <h2>Output:</h2>
-Build target 'Target 1'
 compiling mcu_test.c...
-compiling mcu_PWM.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1414
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 2 Warning(s).
+mcu_test.c(160): warning C280: 'i': unreferenced local variable
+mcu_test.c - 0 Error(s), 1 Warning(s).
 Build target 'Target 1'
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
+    SEGMENT: ?PR?SHOW?MCU_TEST
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1414
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-compiling mcu_PWM.c...
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-linking...
+    SEGMENT: ?PR?INIT_PARAMETER?MCU_TEST
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1420
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
+    SEGMENT: ?PR?TRIG_SUPERSONIC?MCU_TEST
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1420
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=48.0 xdata=0 code=1425
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-mcu_test.c(165): error C202: 'PWM': undefined identifier
-mcu_test.c(220): error C202: 'PWM': undefined identifier
-compiling mcu_PWM.c...
-Target not created
-Build target 'Target 1'
-compiling mcu_test.c...
-compiling mcu_PWM.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
+    SEGMENT: ?PR?MEASURE_DISTANCE?MCU_TEST
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_ADDPWM?MCU_PWM
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1373
+Program Size: data=57.0 xdata=0 code=1240
 creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1373
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
+".\output\mcu_test" - 0 Error(s), 7 Warning(s).
 compiling mcu_test.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1373
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
+mcu_test.c(160): warning C280: 'i': unreferenced local variable
+mcu_test.c - 0 Error(s), 1 Warning(s).
 Build target 'Target 1'
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
+    SEGMENT: ?PR?SHOW?MCU_TEST
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT_PARAMETER?MCU_TEST
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TRIG_SUPERSONIC?MCU_TEST
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MEASURE_DISTANCE?MCU_TEST
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_ADDPWM?MCU_PWM
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=48.0 xdata=0 code=1373
+Program Size: data=57.0 xdata=0 code=1253
 creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
+".\output\mcu_test" - 0 Error(s), 7 Warning(s).
 compiling mcu_test.c...
-mcu_test.c - 0 Error(s), 0 Warning(s).
+mcu_test.c(160): warning C280: 'i': unreferenced local variable
+mcu_test.c - 0 Error(s), 1 Warning(s).
 Build target 'Target 1'
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
+    SEGMENT: ?PR?SHOW?MCU_TEST
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT_PARAMETER?MCU_TEST
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TRIG_SUPERSONIC?MCU_TEST
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MEASURE_DISTANCE?MCU_TEST
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_ADDPWM?MCU_PWM
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1403
+Program Size: data=85.1 xdata=0 code=2288
 creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-compiling mcu_test.c...
-mcu_test.c(181): error C141: syntax error near 'distance'
-mcu_test.c - 1 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1563
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1563
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1563
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1563
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1563
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-compiling mcu_test.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1563
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWMINIT?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_ADDPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_REDUCEPWM?MCU_PWM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SETPWM?MCU_PWM
-Program Size: data=52.0 xdata=0 code=1563
-creating hex file from ".\output\mcu_test"...
-".\output\mcu_test" - 0 Error(s), 4 Warning(s).
+".\output\mcu_test" - 0 Error(s), 7 Warning(s).
